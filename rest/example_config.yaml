@@ -1,0 +1,62 @@
+# Project definitions (do not edit)
+Task: OpenField
+scorer: Wallhorn
+date: Aug10
+
+# Project path (change when moving around)
+project_path: C:\Users\Lutz\OneDrive\Desktop\Data Science\Test_DLC_Project\OpenField-Wallhorn-2022-08-10
+
+# Annotation data set configuration (and individual video cropping parameters)
+video_sets:
+  C:\Users\Lutz\OneDrive\Desktop\Data Science\Test_DLC_Project\OpenField-Wallhorn-2022-08-10\videos\OF_Arch_11_trimmed.mp4:
+    crop: 0, 1280, 0, 960
+  C:\Users\Lutz\OneDrive\Desktop\Data Science\Test_DLC_Project\OpenField-Wallhorn-2022-08-10\videos\OF_Arch_13_trimmed.mp4:
+    crop: 0, 1280, 0, 960
+  C:\Users\Lutz\OneDrive\Desktop\Data Science\Test_DLC_Project\OpenField-Wallhorn-2022-08-10\videos\OF_Arch_14_trimmed.mp4:
+    crop: 0, 1280, 0, 960
+  C:\Users\Lutz\OneDrive\Desktop\Data Science\Test_DLC_Project\OpenField-Wallhorn-2022-08-10\videos\OF_Arch_15_trimmed.mp4:
+    crop: 0, 1280, 0, 960
+
+bodyparts:
+- nose
+- left_ear
+- right_ear
+- neck_center
+- left_hip
+- right_hip
+- tail_base
+start: 0
+stop: 1
+numframes2pick: 20
+
+# Plotting configuration
+skeleton: [[nose, left_ear], [nose, right_ear], [neck_center, left_ear], [neck_center, right_ear], [neck_center, left_hip], [neck_center, right_hip], [tail_base, left_hip], [tail_base, right_hip]]
+skeleton_color: black
+pcutoff: 0.6
+dotsize: 2
+alphavalue: 0.7
+colormap: jet
+
+# Training,Evaluation and Analysis configuration
+TrainingFraction:
+- 0.95
+iteration: 0
+resnet:
+snapshotindex: -1
+batch_size: 8
+
+# Cropping Parameters (for analysis and outlier frame detection)
+cropping: false
+#if cropping is true for analysis, then set the values here:
+x1: 0
+x2: 640
+y1: 277
+y2: 624
+
+# Refinement configuration (parameters from annotation dataset configuration also relevant in this stage)
+corner2move2:
+- 50
+- 50
+move2corner: true
+default_net_type: resnet_50
+default_augmenter: default
